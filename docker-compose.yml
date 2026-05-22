@@ -1,0 +1,101 @@
+version: "3.8"
+
+services:
+  # ── Nginx (Reverse Proxy) ──
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ../gateway-svc/nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - gateway-svc
+
+  # ── Gateway ──
+  gateway-svc:
+    build: ../gateway-svc
+    ports:
+      - "8080:8080"
+    env_file:
+      - ../gateway-svc/.env
+    depends_on:
+      - redis
+    restart: always
+
+  # ── Frontend ──
+  frontend:
+    build: ../frontend
+    ports:
+      - "5173:5173"
+    depends_on:
+      - gateway-svc
+    restart: always
+
+  # ── User ──
+  user-svc:
+    build: ../user-svc
+    ports:
+      - "8081:8081"
+    depends_on:
+      - redis
+    restart: always
+
+  # ── Schedule ──
+  schedule-svc:
+    build: ../schedule-svc
+    ports:
+      - "8082:8082"
+    restart: always
+
+  # ── Community ──
+  community-svc:
+    build: ../community-svc
+    ports:
+      - "8083:8083"
+    depends_on:
+      - rabbitmq
+    restart: always
+
+  # ── Challenge ──
+  challenge-svc:
+    build: ../challenge-svc
+    ports:
+      - "8084:8084"
+    depends_on:
+      - rabbitmq
+    restart: always
+
+  # ── Recommendation ──
+  recommendation-svc:
+    build: ../recommendation-svc
+    ports:
+      - "8085:8085"
+    depends_on:
+      - redis
+      - rabbitmq
+    restart: always
+
+  # ── AI ──
+  ai-svc:
+    build: ../ai-svc
+    ports:
+      - "8086:8086"
+    restart: always
+
+  # ── Redis ──
+  redis:
+    image: redis:7
+    ports:
+      - "6379:6379"
+    restart: always
+
+  # ── RabbitMQ ──
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672" # 메시지 포트
+      - "15672:15672" # 관리자 UI 포트
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    restart: always
