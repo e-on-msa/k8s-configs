@@ -1,7 +1,7 @@
 # secret files
-secret.yaml
-secret.yml
+**/secret.yaml
+**/secret.yml
 
 # allow examples
-!secret.example.yaml
-!secret.example.yml
+!**/secret.example.yaml
+!**/secret.example.yml
