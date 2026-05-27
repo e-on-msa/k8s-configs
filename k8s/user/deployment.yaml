@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-svc
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: user-svc
+
+  template:
+    metadata:
+      labels:
+        app: user-svc
+
+    spec:
+      containers:
+        - name: user-svc
+          image: eonmsa/user-svc:latest
+
+          ports:
+            - containerPort: 8081
+
+          env:
+            - name: PORT
+              value: "8081"
+
+            - name: DB_HOST
+              value: mysql
+
+            - name: DB_PORT
+              value: "3306"
+
+            - name: REDIS_HOST
+              value: redis
+
+            - name: REDIS_PORT
+              value: "6379"
+              

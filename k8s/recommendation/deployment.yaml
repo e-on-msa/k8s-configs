@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: recommendation-svc
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: recommendation-svc
+
+  template:
+    metadata:
+      labels:
+        app: recommendation-svc
+
+    spec:
+      containers:
+        - name: recommendation-svc
+          image: eonmsa/recommendation-svc:latest
+
+          ports:
+            - containerPort: 8085
+
+          env:
+            - name: PORT
+              value: "8085"
+
+            - name: DB_HOST
+              value: mysql
+
+            - name: DB_PORT
+              value: "3306"
+
+            - name: REDIS_HOST
+              value: redis
+
+            - name: REDIS_PORT
+              value: "6379"
+
+            - name: RABBITMQ_HOST
+              value: rabbitmq

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: challenge-svc
+
+spec:
+  selector:
+    app: challenge-svc
+
+  ports:
+    - port: 8084
+      targetPort: 8084
+
+  type: ClusterIP
+  

@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: schedule-svc
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: schedule-svc
+
+  template:
+    metadata:
+      labels:
+        app: schedule-svc
+
+    spec:
+      containers:
+        - name: schedule-svc
+          image: eonmsa/schedule-svc:latest
+
+          ports:
+            - containerPort: 8082
+
+          env:
+            - name: PORT
+              value: "8082"
+
+            - name: DB_HOST
+              value: mysql
+
+            - name: DB_PORT
+              value: "3306"
+
+            - name: REDIS_HOST
+              value: redis
+              

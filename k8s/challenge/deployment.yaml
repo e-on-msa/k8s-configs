@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: challenge-svc
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: challenge-svc
+
+  template:
+    metadata:
+      labels:
+        app: challenge-svc
+
+    spec:
+      containers:
+        - name: challenge-svc
+          image: eonmsa/challenge-svc:latest
+
+          ports:
+            - containerPort: 8084
+
+          env:
+            - name: PORT
+              value: "8084"
+
+            - name: DB_HOST
+              value: mysql
+
+            - name: DB_PORT
+              value: "3306"
+
+            - name: RABBITMQ_HOST
+              value: rabbitmq

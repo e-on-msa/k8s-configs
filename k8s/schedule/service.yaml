@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: schedule-svc
+
+spec:
+  selector:
+    app: schedule-svc
+
+  ports:
+    - port: 8082
+      targetPort: 8082
+
+  type: ClusterIP
+  

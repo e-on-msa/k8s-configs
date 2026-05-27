@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: community-svc
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: community-svc
+
+  template:
+    metadata:
+      labels:
+        app: community-svc
+
+    spec:
+      containers:
+        - name: community-svc
+          image: eonmsa/community-svc:latest
+
+          ports:
+            - containerPort: 8083
+
+          env:
+            - name: PORT
+              value: "8083"
+
+            - name: DB_HOST
+              value: mysql
+
+            - name: DB_PORT
+              value: "3306"
+
+            - name: RABBITMQ_HOST
+              value: rabbitmq
