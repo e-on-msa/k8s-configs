@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+    name: community-config
+
+data:
+    NODE_ENV: "production"
+    PORT: "8083"
+
+    DB_HOST: "mysql"
+    DB_PORT: "3306"
+    DB_NAME: "community_db"
+    DB_USER: "root"
+
+    REDIS_HOST: "redis"
+    REDIS_PORT: "6379"

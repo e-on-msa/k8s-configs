@@ -18,21 +18,14 @@ spec:
     spec:
       containers:
         - name: schedule-svc
-          image: eonmsa/schedule-svc:latest
+          image: eonmsa/schedule-svc:v2
+          imagePullPolicy: Always
 
           ports:
             - containerPort: 8082
 
-          env:
-            - name: PORT
-              value: "8082"
-
-            - name: DB_HOST
-              value: mysql
-
-            - name: DB_PORT
-              value: "3306"
-
-            - name: REDIS_HOST
-              value: redis
-              
+          envFrom:
+            - configMapRef:
+                name: schedule-config
+            - secretRef:
+                name: schedule-secret
