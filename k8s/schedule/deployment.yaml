@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: schedule-svc
-          image: eonmsa/schedule-svc:v2
+          image: eonmsa/schedule-svc:v3
           imagePullPolicy: Always
 
           ports:

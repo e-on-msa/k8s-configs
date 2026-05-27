@@ -4,16 +4,21 @@ metadata:
     name: schedule-config
 
 data:
-    NODE_ENV: "production"
-    PORT: "8082"
+  NODE_ENV: "production"
+  PORT: "8082"
 
-    DB_HOST: "mysql"
-    DB_PORT: "3306"
-    DB_NAME: "schedule_db"
-    DB_USER: "root"
+  DB_HOST: "mysql"
+  DB_PORT: "3306"
+  DB_NAME: "schedule_db"
+  DB_USER: "root"
 
-    REDIS_HOST: "redis"
-    REDIS_PORT: "6379"
+  REDIS_URL: "redis://redis:6379"
+  REDIS_HOST: "redis"
+  REDIS_PORT: "6379"
 
-    USER_SERVICE_URL: "http://user-svc:8081"
-    MY_SCHOOL_CACHE_TTL_SECONDS: "86400"
+  USER_SVC_BASE_URL: "http://user-svc:8081"
+  MY_SCHOOL_CACHE_TTL_SECONDS: "86400"
+
+  ACADEMIC_SCHEDULE_CRON_ENABLED: "true"
+  ACADEMIC_SCHEDULE_CRON: "0 3 * * *"
+  ACADEMIC_SCHEDULE_CRON_TIMEZONE: "Asia/Seoul"
