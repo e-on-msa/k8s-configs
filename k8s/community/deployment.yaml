@@ -19,19 +19,14 @@ spec:
       containers:
         - name: community-svc
           image: eonmsa/community-svc:latest
+          imagePullPolicy: Always
 
           ports:
             - containerPort: 8083
 
-          env:
-            - name: PORT
-              value: "8083"
-
-            - name: DB_HOST
-              value: mysql
-
-            - name: DB_PORT
-              value: "3306"
-
-            - name: RABBITMQ_HOST
-              value: rabbitmq
+          envFrom:
+            - configMapRef:
+                name: community-config
+            - secretRef:
+                name: community-secret
+                
