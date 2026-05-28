@@ -27,3 +27,14 @@ spec:
           envFrom:
             - configMapRef:
                 name: challenge-config
+            - secretRef:
+                name: challenge-secret
+
+          volumeMounts:
+            - name: challenge-uploads
+              mountPath: /app/uploads
+
+      volumes:
+        - name: challenge-uploads
+          persistentVolumeClaim:
+            claimName: challenge-uploads-pvc

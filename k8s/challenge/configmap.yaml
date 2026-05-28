@@ -1,16 +1,25 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-    name: challenge-config
+  name: challenge-config
 
 data:
-    NODE_ENV: "production"
-    PORT: "8084"
+  NODE_ENV: "production"
+  PORT: "8084"
 
-    DB_HOST: "mysql"
-    DB_PORT: "3306"
-    DB_NAME: "challenge_db"
-    DB_USER: "root"
+  DB_HOST: "mysql"
+  DB_PORT: "3306"
+  DB_USER: "root"
+  DB_NAME: "challenge_db"
 
-    REDIS_HOST: "redis"
-    REDIS_PORT: "6379"
+  USER_SERVICE_URL: "http://user-svc:8081"
+  STORAGE_TYPE: "local"
+
+  RABBITMQ_URL: "amqp://guest:guest@rabbitmq:5672"
+  USER_EVENT_EXCHANGE: "user.event"
+  USER_EVENT_QUEUE: "challenge-svc.user-event.queue"
+
+  CHALLENGE_EVENT_EXCHANGE: "eon.events"
+
+  REDIS_HOST: "redis"
+  REDIS_PORT: "6379"
