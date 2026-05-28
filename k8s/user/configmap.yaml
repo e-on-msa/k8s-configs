@@ -19,7 +19,7 @@ data:
 
   SMTP_HOST: "smtp.gmail.com"
   SMTP_PORT: "587"
-  SMTP_USER: "dltndus5985@gmail.com"
+  SMTP_USER: "eon20260401@gmail.com"
 
   COMMUNITY_SERVICE_URL: "http://community-svc:4004"
   CHALLENGE_SERVICE_URL: "http://challenge-svc:4002"
