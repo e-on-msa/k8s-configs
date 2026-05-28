@@ -1,16 +1,25 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-    name: user-config
+  name: user-config
 
 data:
-    NODE_ENV: "production"
-    PORT: "8081"
+  NODE_ENV: "production"
+  PORT: "8081"
 
-    DB_HOST: "mysql"
-    DB_PORT: "3306"
-    DB_NAME: "user_db"
-    DB_USER: "root"
+  DB_HOST: "mysql"
+  DB_PORT: "3306"
+  DB_NAME: "user_db"
+  DB_USER: "root"
 
-    REDIS_HOST: "redis"
-    REDIS_PORT: "6379"
+  REDIS_HOST: "redis"
+  REDIS_PORT: "6379"
+
+  RABBITMQ_URL: "amqp://rabbitmq"
+
+  SMTP_HOST: "smtp.gmail.com"
+  SMTP_PORT: "587"
+  SMTP_USER: "dltndus5985@gmail.com"
+
+  COMMUNITY_SERVICE_URL: "http://community-svc:4004"
+  CHALLENGE_SERVICE_URL: "http://challenge-svc:4002"
