@@ -22,7 +22,3 @@ spec:
 
           ports:
             - containerPort: 8086
-
-          env:
-            - name: PORT
-              value: "8086"
