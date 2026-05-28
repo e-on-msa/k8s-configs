@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: gateway-config
+
+data:
+  NODE_ENV: "production"
+  PORT: "8080"
+
+  REDIS_HOST: "redis"
+  REDIS_PORT: "6379"
+
+  FRONTEND_URL: "http://frontend-svc:5173"
+
+  USER_SVC_URL: "http://user-svc:8081"
+  SCHEDULE_SVC_URL: "http://schedule-svc:8082"
+  COMMUNITY_SVC_URL: "http://community-svc:8083"
+  CHALLENGE_SVC_URL: "http://challenge-svc:8084"
+  RECOMMENDATION_SVC_URL: "http://recommendation-svc:8085"
+  AI_SVC_URL: "http://ai-svc:8086"
+
+  SMTP_HOST: "smtp.gmail.com"
+  SMTP_PORT: "587"
+  SMTP_USER: "eon20260401@gmail.com"
