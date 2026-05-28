@@ -18,11 +18,12 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: eonmsa/frontend:latest
+          image: eonmsa/frontend-svc:latest
           imagePullPolicy: Always
 
           ports:
             - containerPort: 5173
 
           envFrom:
-              
+            - configMapRef:
+                name: frontend-config
