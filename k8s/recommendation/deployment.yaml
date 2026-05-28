@@ -19,25 +19,13 @@ spec:
       containers:
         - name: recommendation-svc
           image: eonmsa/recommendation-svc:latest
+          imagePullPolicy: Always
 
           ports:
             - containerPort: 8085
 
-          env:
-            - name: PORT
-              value: "8085"
-
-            - name: DB_HOST
-              value: mysql
-
-            - name: DB_PORT
-              value: "3306"
-
-            - name: REDIS_HOST
-              value: redis
-
-            - name: REDIS_PORT
-              value: "6379"
-
-            - name: RABBITMQ_HOST
-              value: rabbitmq
+          envFrom:
+            - configMapRef:
+                name: recommendation-config
+            - secretRef:
+                name: recommendation-secret

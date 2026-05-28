@@ -19,19 +19,11 @@ spec:
       containers:
         - name: challenge-svc
           image: eonmsa/challenge-svc:latest
+          imagePullPolicy: Always
 
           ports:
             - containerPort: 8084
 
-          env:
-            - name: PORT
-              value: "8084"
-
-            - name: DB_HOST
-              value: mysql
-
-            - name: DB_PORT
-              value: "3306"
-
-            - name: RABBITMQ_HOST
-              value: rabbitmq
+          envFrom:
+            - configMapRef:
+                name: challenge-config

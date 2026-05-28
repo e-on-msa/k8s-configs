@@ -1,16 +1,27 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-    name: recommendation-config
+  name: recommendation-config
 
 data:
-    NODE_ENV: "production"
-    PORT: "8085"
+  NODE_ENV: "production"
+  PORT: "8085"
 
-    DB_HOST: "mysql"
-    DB_PORT: "3306"
-    DB_NAME: "recommendation_db"
-    DB_USER: "root"
+  DB_HOST: "mysql"
+  DB_PORT: "3306"
+  DB_USER: "root"
+  DB_NAME: "recommendation_db"
 
-    REDIS_HOST: "redis"
-    REDIS_PORT: "6379"
+  GATEWAY_URL: "http://gateway-svc:8080"
+
+  USER_SERVICE_URL: "http://user-svc:8081"
+
+  COMMUNITY_SERVICE_URL: "http://community-svc:8083"
+  CHALLENGE_SERVICE_URL: "http://challenge-svc:8084"
+
+  AI_SERVICE_URL: "http://ai-svc:8086"
+
+  RABBITMQ_URL: "amqp://guest:guest@rabbitmq:5672"
+
+  REDIS_PORT: "6379"
+  REDIS_URL: "redis://redis:6379"
