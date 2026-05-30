@@ -19,7 +19,4 @@ spec:
       containers:
         - name: ai-svc
           image: eonmsa/ai-svc:latest
-          imagePullPolicy: Always
-
-          ports:
-            - containerPort: 8086
+          revisionHistoryLimit: 2

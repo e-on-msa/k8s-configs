@@ -19,7 +19,7 @@ spec:
       containers:
         - name: gateway-svc
           image: eonmsa/gateway-svc:latest
-          imagePullPolicy: Always
+          revisionHistoryLimit: 2
 
           ports:
             - containerPort: 8080

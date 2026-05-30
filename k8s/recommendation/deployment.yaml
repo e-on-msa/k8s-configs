@@ -19,7 +19,7 @@ spec:
       containers:
         - name: recommendation-svc
           image: eonmsa/recommendation-svc:latest
-          imagePullPolicy: Always
+          revisionHistoryLimit: 2
 
           ports:
             - containerPort: 8085

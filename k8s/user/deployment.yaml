@@ -18,8 +18,8 @@ spec:
     spec:
       containers:
         - name: user-svc
-          image: eonmsa/user-svc:v1
-          imagePullPolicy: Always
+          image: eonmsa/user-svc:v2
+          revisionHistoryLimit: 2
 
           ports:
             - containerPort: 8081

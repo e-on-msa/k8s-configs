@@ -19,7 +19,7 @@ spec:
       containers:
         - name: challenge-svc
           image: eonmsa/challenge-svc:latest
-          imagePullPolicy: Always
+          revisionHistoryLimit: 2
 
           ports:
             - containerPort: 8084

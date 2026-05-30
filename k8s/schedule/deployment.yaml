@@ -19,7 +19,7 @@ spec:
       containers:
         - name: schedule-svc
           image: eonmsa/schedule-svc:v4
-          imagePullPolicy: Always
+          revisionHistoryLimit: 2
 
           ports:
             - containerPort: 8082

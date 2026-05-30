@@ -19,7 +19,7 @@ spec:
       containers:
         - name: community-svc
           image: eonmsa/community-svc:latest
-          imagePullPolicy: Always
+          revisionHistoryLimit: 2
 
           ports:
             - containerPort: 8083
