@@ -5,7 +5,9 @@ metadata:
 
 spec:
   serviceName: mysql
+  
   replicas: 1
+  revisionHistoryLimit: 2
 
   selector:
     matchLabels:

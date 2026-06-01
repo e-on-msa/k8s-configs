@@ -5,6 +5,7 @@ metadata:
 
 spec:
   replicas: 1
+  revisionHistoryLimit: 2
 
   selector:
     matchLabels:
@@ -18,8 +19,7 @@ spec:
     spec:
       containers:
         - name: user-svc
-          image: eonmsa/user-svc:v3
-          revisionHistoryLimit: 2
+          image: eonmsa/user-svc:v6
 
           ports:
             - containerPort: 8081

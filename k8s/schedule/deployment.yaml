@@ -5,6 +5,7 @@ metadata:
 
 spec:
   replicas: 1
+  revisionHistoryLimit: 2
 
   selector:
     matchLabels:
@@ -19,7 +20,6 @@ spec:
       containers:
         - name: schedule-svc
           image: eonmsa/schedule-svc:v4
-          revisionHistoryLimit: 2
 
           ports:
             - containerPort: 8082

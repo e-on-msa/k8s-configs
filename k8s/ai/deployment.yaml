@@ -5,6 +5,7 @@ metadata:
 
 spec:
   replicas: 1
+  revisionHistoryLimit: 2
 
   selector:
     matchLabels:
@@ -19,4 +20,3 @@ spec:
       containers:
         - name: ai-svc
           image: eonmsa/ai-svc:latest
-          revisionHistoryLimit: 2
