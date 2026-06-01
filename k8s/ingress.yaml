@@ -4,12 +4,18 @@ metadata:
   name: eon-ingress
 
 spec:
-  ingressClassName: nginx
-
   rules:
     - http:
         paths:
           - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: gateway-svc
+                port:
+                  number: 8080
+
+          - path: /internal
             pathType: Prefix
             backend:
               service:
