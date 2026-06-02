@@ -7,6 +7,14 @@ spec:
   rules:
     - http:
         paths:
+          - path: /csrf-token
+            pathType: Prefix
+            backend:
+              service:
+                name: gateway-svc
+                port:
+                  number: 8080
+
           - path: /api
             pathType: Prefix
             backend:
