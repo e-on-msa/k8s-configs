@@ -21,5 +21,5 @@ data:
   SMTP_PORT: "587"
   SMTP_USER: "eon20260401@gmail.com"
 
-  COMMUNITY_SERVICE_URL: "http://community-svc:4004"
-  CHALLENGE_SERVICE_URL: "http://challenge-svc:4002"
+  COMMUNITY_SERVICE_URL: "http://community-svc:8083"
+  CHALLENGE_SERVICE_URL: "http://challenge-svc:8084"
