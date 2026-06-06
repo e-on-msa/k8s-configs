@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: schedule-svc
-          image: eonmsa/schedule-svc:v6
+          image: eonmsa/schedule-svc:v7
 
           ports:
             - containerPort: 8082
