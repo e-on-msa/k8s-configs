@@ -23,13 +23,13 @@ spec:
                 port:
                   number: 8080
 
-          - path: /internal
+          - path: /uploads
             pathType: Prefix
             backend:
               service:
-                name: gateway-svc
+                name: challenge-svc
                 port:
-                  number: 8080
+                  number: 8084
 
           - path: /
             pathType: Prefix
