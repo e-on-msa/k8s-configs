@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: challenge-svc
-          image: eonmsa/challenge-svc:11
+          image: eonmsa/challenge-svc:v11
           imagePullPolicy: Always
 
           ports:
